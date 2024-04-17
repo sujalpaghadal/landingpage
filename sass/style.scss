@@ -1,0 +1,762 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+@mixin three($display, $justify, $align) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin color($color, $font, $weight) {
+  color: $color;
+  font-size: $font;
+  font-weight: $weight;
+}
+
+@mixin size($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin space($padding, $margin) {
+  margin: $margin;
+  padding: $padding;
+}
+
+.container-lg {
+  padding: 0px 12px;
+}
+
+// =============header================
+.main.scrollmainfix {
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  top: 0;
+  z-index: 22;
+  box-shadow: 0px 0px 10px rgb(70, 70, 70);
+  animation: scrolling 0.5s ease-out forwards;
+}
+
+@keyframes scrolling {
+  0% {
+    opacity: 0;
+    top: -70px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
+}
+
+.mainheader {
+  @include size(70px, auto);
+}
+
+.mainheader {
+  position: relative;
+}
+
+.menu {
+  & > li {
+    @include space(0, 0px 13.6px);
+
+    & > a {
+      letter-spacing: 0.5px;
+      @include color(#252b33, 16px, 600);
+      transition: 0.2s;
+    }
+
+    &:hover a {
+      color: #d4303f;
+    }
+  }
+}
+
+.toggle {
+  display: none;
+}
+
+.rightbutton {
+  & > button {
+    border: none;
+    border-radius: 5px;
+    @include size(40px, 124px);
+    background-color: #d4303f;
+    @include color(#ffffff, 16px, 700);
+  }
+}
+
+@media screen and (max-width: 1201px) {
+  .rightside .left {
+    display: none;
+  }
+
+  .container-lg {
+    padding: 0px 15px;
+  }
+
+  .toggle {
+    display: block;
+    font-size: 20px;
+  }
+}
+
+.mobilenavigation {
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  overflow: auto;
+  top: 100%;
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 5px #00000031;
+  z-index: 1111;
+}
+
+.mobilenavigation .menu li {
+  padding: 8px 0px;
+  border-bottom: solid 1px #eeeeee;
+}
+
+// ================main===================
+.mobile {
+  background-color: #fbeaec;
+  height: auto;
+  padding: 80px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.mobiledetails {
+  & > h2 {
+    @include color(#4c4d4d, 72px, 600);
+  }
+
+  & > p {
+    @include color(#4c4d4d, 20px, 300);
+  }
+}
+
+.mobilebigimage {
+  @include size(509px, 250px);
+}
+
+@media screen and (max-width: 1201px) {
+  .mobile {
+    padding: 10px 0px;
+  }
+}
+
+.about {
+  padding: 104px 0px;
+}
+
+.detailsofabout {
+  & > h2 {
+    @include color(#4c4d4d, 36px, 600);
+  }
+
+  & > .mainline {
+    & > .line {
+      @include size(2px, 100px);
+      background-color: #d4303f;
+    }
+  }
+
+  & > p {
+    @include color(#4c4d4d, 20px, 300);
+  }
+}
+
+.mainimage {
+  @include size(470px, 597px);
+
+  & > img {
+    object-fit: contain;
+  }
+}
+
+.aboutmaindetails {
+  & > h2 {
+    @include color(#4c4d4d, 24px, 500);
+  }
+
+  & > p {
+    @include color(#4c4d4d, 16px, 400);
+  }
+}
+
+@media screen and (max-width: 1201px) {
+  .aboutmaindetails {
+    flex-wrap: wrap;
+  }
+
+  .mainimage {
+    display: none;
+  }
+
+  .aboutmaindetails {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.herobox {
+  position: relative;
+}
+
+.bankgroundimage {
+  background: linear-gradient(rgba(8, 8, 8, 0.8), rgba(0, 0, 0, 0.8)),
+    url("image/intro-bg-4.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 370px;
+}
+
+.bankgroundimage2 {
+  background: linear-gradient(rgba(219, 35, 35, 0.8), rgba(219, 35, 35, 0.8)),
+    url("image/intro-bg-3.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 370px;
+}
+
+// =============footer=================
+.mainfooter {
+  background-color: #111418;
+  padding: 66px 0px;
+}
+
+.footerdetails {
+  display: flex;
+  justify-content: space-between;
+
+  & > .leftfooter {
+    & > p {
+      @include color(#fafafa, 16px, 400);
+
+      & > a {
+        @include color(#bd2130, 16px, 400);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  & > .centerfooter {
+    @include size(38px, 415px);
+
+    & > .mainicon {
+      & > i {
+        @include size(30px, 44px);
+        @include color(#aab1b8, 22px, none);
+      }
+    }
+  }
+
+  & > .rightfooter {
+    & > .rightdetails {
+      & > p {
+        padding: 0px 0px 0px 15px;
+        @include color(#fafafa, 16px, 400);
+      }
+
+      & > p:first-child {
+        padding: 0px 15px;
+        border-right: solid 1px #404245;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1201px) {
+  .footerdetails {
+    justify-content: center;
+    display: flex;
+  }
+
+  .leftfooter {
+    display: flex;
+    justify-content: center;
+  }
+
+  .rightfooter {
+    display: flex;
+    justify-content: center;
+  }
+
+  .leftfooter,
+  .centerfooter {
+    margin-bottom: 50px;
+  }
+}
+
+.maindetailsbox {
+  @include space(50px 0px 0px, -48px -12px 0px);
+
+  & > .onebox {
+    @include space(48px 0px 0px, 0px);
+
+    & > .onelogo {
+      margin-bottom: 20px;
+    }
+
+    & > .onedetails {
+      & > h4 {
+        margin-bottom: 10px;
+        font-size: 44px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1201px) {
+  .maindetailsbox {
+    @include space(0px, 0px);
+  }
+
+  .maindetailsbox {
+    & > .onebox {
+      @include space(30px 0px 0px, 0px);
+    }
+  }
+}
+
+.videodetails {
+  & > h2 {
+    font-size: 36px;
+  }
+
+  & > a {
+    & > span {
+      @include space(24px 30px, 0px);
+      border-radius: 50%;
+      background-color: #ffffff;
+    }
+  }
+}
+
+.box3details {
+  & > h2 {
+    font-size: 36px;
+  }
+
+  & > .center {
+    & > p {
+      background-color: #fff;
+      @include size(2px, 100px);
+      margin: 16px 0px;
+    }
+  }
+
+  & > p {
+    font-size: 20px;
+  }
+
+  & > .twoimage {
+    & > a {
+      @include size(55px, 174px);
+    }
+  }
+}
+
+.box4details {
+  & > h2 {
+    font-size: 36px;
+  }
+
+  & > .center {
+    & > p {
+      background-color: #fff;
+      @include size(2px, 100px);
+      margin: 16px 0px;
+    }
+  }
+
+  & > p {
+    font-size: 20px;
+  }
+
+  & > .input {
+    & > input {
+      border: none;
+      @include space(14px 120px 14px 15px, 0px);
+      border-radius: 5px 0px 0px 5px;
+      outline: none;
+    }
+
+    & > button {
+      border: none;
+      background-color: #282c30;
+      color: #fff;
+      padding: 13px 24px;
+      border-radius: 0px 5px 5px 0px;
+    }
+  }
+}
+
+.AppFeatures {
+  padding: 104px 0px;
+}
+
+.mainphoto {
+  @include size(582px, 284px);
+
+  & img {
+    object-fit: contain;
+  }
+}
+
+.threelastbox1 {
+  padding: 8px 0px 0px 00px;
+
+  & .iconsbox {
+    @include size(70px, 70px);
+    @include color(#4c4d4d, 25px, none);
+    @include space(15px 20px, 0px);
+    background-color: #e9ecef;
+    border-radius: 50%;
+  }
+
+  & h3 {
+    @include color(#4c4d4d, 20px, 500);
+  }
+
+  & p {
+    @include color(#4c4d4d, 16px, 400);
+  }
+}
+
+.maindetails1 {
+  text-align: right;
+}
+
+.heading {
+  & > h2 {
+    color: #4c4d4d;
+    font-size: 36px;
+    margin-bottom: 8px;
+  }
+
+  & > .center {
+    & > .redline {
+      background-color: #dc3545;
+      @include size(2px, 100px);
+      margin: 16px 0px;
+    }
+  }
+
+  & > p {
+    font-size: 20px;
+    color: #4c4d4d;
+    margin-bottom: 48px;
+  }
+}
+
+.appScreen {
+  background-color: #f8f9fa;
+  padding: 104px 0px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+}
+
+.imagebox {
+  @include size(703px, 395px);
+
+  & > img {
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.slider {
+  position: relative !important;
+
+  & .owl-prev {
+    position: absolute !important;
+    top: 50%;
+    left: 2%;
+    transform: translateX(-2%) translateY(-50%);
+    color: #3b3b3b !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    background-color: #ffffff !important;
+    font-size: 15px !important;
+    transition: 0.3s !important;
+    @include three(flex, center, center);
+    opacity: 0;
+    visibility: hidden;
+    box-shadow: 0px 0px 5px black;
+  }
+
+  & .owl-next {
+    position: absolute !important;
+    top: 50%;
+    right: 2%;
+    transform: translateX(-2%) translateY(-50%);
+    color: #3b3b3b !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    background-color: #ffffff !important;
+    font-size: 15px !important;
+    transition: 0.3s !important;
+    @include three(flex, center, center);
+    box-shadow: 0px 0px 5px black;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &:hover .owl-prev {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &:hover .owl-next {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  & .active {
+    & > span {
+      background-color: #c6c7c8 !important;
+    }
+  }
+
+  & .owl-dot {
+    border: 1px solid #c6c7c8;
+    background-color: #fff;
+  }
+}
+
+.slider2 {
+  padding: 104px 0px;
+}
+
+.sliderbox1 {
+  & > .mainbox1 {
+    padding: 24px;
+    border: solid 1px #dee2e6;
+    border-radius: 5px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.05);
+
+    & span {
+      color: #e9e9ea;
+      font-size: 40px;
+    }
+
+    & p {
+      @include color(#4c4d4d, 16px, 400);
+      margin-bottom: 16px;
+    }
+
+    & .round1 {
+      @include size(62px, 62px);
+      margin-bottom: 10px;
+
+      & > img {
+        object-fit: contain;
+        border-radius: 50%;
+        @include size(100%, 100%);
+      }
+    }
+
+    & h2 {
+      @include color(#4c4d4d, 16px, 500);
+    }
+
+    & h6 {
+      @include color(#212529, 14px, 400);
+    }
+  }
+}
+
+.plan {
+  padding: 104px 0px;
+  background-color: #f8f9fa;
+}
+
+.mainplanbox {
+  box-shadow: 0px 0px 50px -35px rgba(0, 0, 0, 0.4);
+
+  & > .planbox1 {
+    padding: 24px 16px;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #6c757d;
+
+    & p {
+      @include color(#fff, 24px, 500);
+    }
+  }
+
+  & > .planbox3 {
+    padding: 24px 16px;
+    border-radius: 5px 5px 0px 0px;
+    background-color: #dc3545;
+
+    & p {
+      @include color(#fff, 24px, 500);
+    }
+  }
+
+  & > .planbox2 {
+    padding: 16px;
+
+    & h2 {
+      @include color(#4c4d4d, 36px, 600);
+    }
+
+    & > .yellow {
+      margin-bottom: 20px;
+
+      & span {
+        background-color: #ffc107;
+        padding: 2px 10px;
+        border-radius: 20px;
+        @include color(#000, 14px, 600);
+      }
+    }
+
+    & button {
+      @include space(13px 32px, 4px 0px);
+      border: none;
+      background-color: #6c757d;
+      border-radius: 5px;
+      @include color(#fff, 16px, 500);
+    }
+  }
+
+  & > .details1 {
+    padding: 16px;
+
+    & li {
+      @include color(#4c4d4d, 14px, 400);
+      border-bottom: #eaeaea 1px solid;
+    }
+  }
+}
+
+.Questions {
+  padding: 104px 0px;
+}
+
+.mainquestions {
+  & > .endbox1 {
+    @include color(#4c4d4d, 20px, 300);
+
+    & span {
+      color: #bd2130;
+      border-bottom: solid #bd2130 2px;
+    }
+  }
+
+  & > .startbox1 {
+    & > .startque {
+      & .menu2 {
+        & > li {
+          @include space(20px 20px 20px 10px, 0px);
+          border-bottom: #eaeaea 1px solid;
+          justify-content: space-between;
+          display: flex;
+
+          & > a {
+            letter-spacing: 0.5px;
+            @include color(#4c4d4d, 17px, 400);
+            transition: 0.2s;
+          }
+
+          &:hover a {
+            color: #d4303f;
+          }
+        }
+      }
+    }
+  }
+}
+
+.section {
+  padding: 104px 0px;
+}
+
+.maininputbox {
+  & input {
+    @include space(13px 15px, 0px);
+    width: 100%;
+    border-radius: 5px;
+    border: solid 2px #dee2e6;
+    outline: none;
+  }
+
+  .Message {
+    & input {
+      height: 100px;
+    }
+  }
+
+  & > .planbox3 {
+    & button {
+      @include space(13px 32px, 4px 0px);
+      border: none;
+      background-color: #dc3545;
+      border-radius: 5px;
+      @include color(#fff, 16px, 500);
+    }
+  }
+}
+
+.threelastbox {
+  padding: 8px 0px 0px 0px;
+
+  & .iconsbox {
+    @include color(#4c4d4d, 25px, none);
+  }
+
+  & p {
+    @include color(#4c4d4d, 20px, 500);
+  }
+
+  & > .detailslatbox {
+    padding: 0px 0px 0px 35px;
+
+    & > p {
+      @include color(#4c4d4d, 16px, 400);
+      padding-bottom: 16px;
+    }
+  }
+}
